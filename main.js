@@ -1,9 +1,5 @@
-
 let  numberOfFilms  = +prompt('Сколько фильмов вы уже посмотрели?', '');
-let film = prompt('Один из последних просмотренных фильмов?', '');
-let grade = +prompt('На сколько оцените его?');
-let film2 = prompt('Один из последних просмотренных фильмов?', '');
-let grade2 = +prompt('На сколько оцените его?');
+
 const personalMovieDB = {
     count: numberOfFilms,
     movies: {},
@@ -11,8 +7,32 @@ const personalMovieDB = {
     genres: [],
     privat: false
 };
-personalMovieDB.movies[film] = grade;
-personalMovieDB.movies[film2] = grade2;
+
 
 
 console.log(personalMovieDB);
+
+for (let i = 0; i < 2; i++) {
+    const film = prompt('Один из последних просмотренных фильмов?', '');
+    let grade = prompt('На сколько оцените его?');
+
+
+    if(film != null && grade != null  && film.length < 50){
+        personalMovieDB.movies[film] = grade
+        console.log('done')
+    } else {
+        console.log('error');
+        i--
+    }
+}
+console.log(personalMovieDB)
+
+if (personalMovieDB.count < 10) {
+    console.log('Просмотрено довольно мало фильмов')
+} else if (personalMovieDB.count > 10 && personalMovieDB.count < 30) {
+    console.log('Вы классический зритель')
+} else if (personalMovieDB.count > 30) {
+    console.log('Вы киноман')
+}else {
+    console.log('Произошла ошибка')
+}
