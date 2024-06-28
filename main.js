@@ -33,7 +33,7 @@ console.log(personalMovieDB);
 
 function rememberMyfilms() {
     for (let i = 0; i < 2; i++) {
-        const film = prompt('Один из последних просмотренных фильмов?', '');
+        const film = prompt('Один из последних просмотренных фильмов?', '').trim();
         let grade = prompt('На сколько оцените его?');
 
 
